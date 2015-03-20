@@ -17,7 +17,7 @@ DisableDirPage=yes
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
 OutputDir=setup
-OutputBaseFilename=setup
+OutputBaseFilename=mongodb-setup
 Compression=lzma
 SolidCompression=yes
 
@@ -25,10 +25,6 @@ SolidCompression=yes
 Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "chinesesimplified"; MessagesFile: "compiler:Languages\ChineseSimplified.isl"
 
-;[Components]
-;Name: "x64"; Description: "x64 architecture"; MinVersion: 0,6.1; Check: IsWin64
-;Name: "x86"; Description: "x86 architecture"; OnlyBelowVersion: 0,5.01
-
 [Files]
-Source: "mongodb-x64\*"; DestDir: "{app}"; Flags: ignoreversion 64bit
-Source: "mongodb-x86\*"; DestDir: "{app}"; Flags: ignoreversion 32bit
+Source: "mongodb-x64\*"; DestDir: "{app}"; Flags: ignoreversion 64bit createallsubdirs recursesubdirs; MinVersion: 0,6.1; Check: IsWin64
+Source: "mongodb-x86\*"; DestDir: "{app}"; Flags: ignoreversion 32bit createallsubdirs recursesubdirs; MinVersion: 0,5.01; Check: not IsWin64
