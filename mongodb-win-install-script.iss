@@ -28,3 +28,16 @@ Name: "chinesesimplified"; MessagesFile: "compiler:Languages\ChineseSimplified.i
 [Files]
 Source: "mongodb-x64\*"; DestDir: "{app}"; Flags: ignoreversion 64bit createallsubdirs recursesubdirs; MinVersion: 0,6.1; Check: IsWin64
 Source: "mongodb-x86\*"; DestDir: "{app}"; Flags: ignoreversion 32bit createallsubdirs recursesubdirs; MinVersion: 0,5.01; Check: not IsWin64
+Source: "mongodb-common\mongod.cfg"; DestDir: "{app}"
+Source: "mongodb-common\service-install.bat"; DestDir: "{app}"
+Source: "mongodb-common\service-uninstall.bat"; DestDir: "{app}"
+
+[Run]
+Filename: "{app}\service-install.bat"; WorkingDir: "{app}"
+
+[Dirs]
+Name: "{app}\log"
+Name: "{app}\data\db"
+
+[UninstallRun]
+Filename: "{app}\service-uninstall.bat"
