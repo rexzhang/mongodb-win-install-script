@@ -1,0 +1,1 @@
+mongodb's log file dir
